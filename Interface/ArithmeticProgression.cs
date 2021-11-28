@@ -1,18 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Interface
 {
     class ArithmeticProgression : IIndexableSeries
     {
-        double IIndexable.this[int index] => throw new NotImplementedException();
-        int start = 2;
-        int val = 2;
+        //Создание исключения в том случае, если свойства не реализованы
+        double IIndexable.val_index => throw new NotImplementedException();
+        double IIndexable.val1_index => throw new NotImplementedException();
+        double IIndexable.start => throw new NotImplementedException();
+        //Конструктор для передачи значений свойств переменным
+        public ArithmeticProgression(double val_index, double start)
+        {
+            _val = val_index;
+            _start = start;
+        }
+        double _start, _val;
+
         double ISeries.GetCurrent()//Текущий элемент
         {
-            val += val;
-            return val;
+            _val += _val;
+            return _val;
         }
 
         bool ISeries.MoveNext()//Перейти к следующему
@@ -22,7 +29,7 @@ namespace Interface
 
         void ISeries.Reset()//Начать заново
         {
-            val = start;
+            _val = _start;
         }
 
     }

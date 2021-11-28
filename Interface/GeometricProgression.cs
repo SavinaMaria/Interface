@@ -1,33 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Interface
 {
     class GeometricProgression : IIndexableSeries
     {
-        double IIndexable.this[int index] => throw new NotImplementedException();
-
-        int start = 2;
-        int val = 2;
-        int val1 = 4;
-
-        double ISeries.GetCurrent()
+        //Создание исключения в том случае, если свойства не реализованы
+        double IIndexable.val_index => throw new NotImplementedException();
+        double IIndexable.start => throw new NotImplementedException();
+        double IIndexable.val1_index => throw new NotImplementedException();
+        //Конструктор для передачи значений свойств переменным
+        public GeometricProgression(double val_index, double start, double val1_index)
         {
-            val  = val * val1;
-            return val;
+            _start = start;
+            _val = val_index;
+            _val1 = val1_index;
         }
-         
-        bool ISeries.MoveNext()
+        double _start, _val, _val1;
+
+        double ISeries.GetCurrent()//Текущий элемент
+        {
+            _val = _val * _val1;
+            return _val;
+        }
+
+        bool ISeries.MoveNext()//Перейти к следующему
         {
             return true;
         }
 
-        void ISeries.Reset()
+        void ISeries.Reset()//Начать заново
         {
-            val = start;
+            _val = _start;
         }
-
-
     }
 }
+

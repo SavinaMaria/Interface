@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Interface
+﻿namespace Interface
 {
     public interface IIndexable
     {
-        double this[int index] { get; }
+        //Объявление новых свойств
+        public double val_index { get; }
+        public double val1_index { get; }
+        public double start { get; }
     }
 }

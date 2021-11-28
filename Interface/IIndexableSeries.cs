@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Interface
+﻿namespace Interface
 {
-    interface IIndexableSeries: ISeries, IIndexable
+    //Интерфейс IIndexableSeries наследует ISeries и IIndexable
+    interface IIndexableSeries : ISeries, IIndexable
     {
 
     }

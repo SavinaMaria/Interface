@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Interface
+﻿namespace Interface
 {
     public interface ISeries
     {
+        //Объявление новых методов
         double GetCurrent();
         bool MoveNext();
         void Reset();
