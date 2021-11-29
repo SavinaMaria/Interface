@@ -7,6 +7,7 @@ namespace Interface
         static void Main(string[] args)
         {
             //Объявление переменных 
+            int index;
             double val, val1, start;
             //Ввод значений переменных в консоли
             Console.WriteLine("Введите начальное значение: ");
@@ -16,20 +17,20 @@ namespace Interface
             Console.WriteLine("Введите количество итераций: ");
             int i = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите нужный номер итерации: ");
-            int number = int.Parse(Console.ReadLine());
+            index = int.Parse(Console.ReadLine());
             //Создание объектов классов
-            ArithmeticProgression ap = new ArithmeticProgression(val, start);
-            GeometricProgression gp = new GeometricProgression(val, start, val1);
+            ArithmeticProgression ap = new ArithmeticProgression(val, start, index);
+            GeometricProgression gp = new GeometricProgression(val, start, val1, index);
             //Вывод результатов арифметической прогрессии
             Console.WriteLine("Арифметическая прогрессия:");
             Console.WriteLine(val);
             PrintSeries(ap, i);
-            PrintIndex(ap, number);
+            PrintIndex(ap, index);
             //Вывод результатов геометрической прогрессии
             Console.WriteLine("Геометрическая прогрессия:");
             Console.WriteLine(val);
             PrintSeries(gp, i);
-            PrintIndex(gp, number);
+            PrintIndex(gp, index);
         }
 
         //Метод для создания массива результатов прогрессии
